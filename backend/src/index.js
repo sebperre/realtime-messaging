@@ -1,11 +1,8 @@
-// const express = require("express");
-// const app = express();
-// const PORT = 4000;
-
 import { WebSocketServer } from "ws";
 
-const wss = new WebSocketServer({ port: 8080 });
+const PORT = 8080;
 
+const wss = new WebSocketServer({ port: PORT });
 const clients = new Set();
 
 wss.on("connection", function connection(ws) {
@@ -13,18 +10,12 @@ wss.on("connection", function connection(ws) {
 
   ws.on("message", function message(data) {
     console.log("received: %s", data);
+    clients.forEach((client) => {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(JSON.stringify(JSON.parse(data)));
+      }
+    });
   });
-  const test = { message: "hello from server" };
-
-  setInterval(() => {
-    ws.send(JSON.stringify(test));
-  }, 3000);
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
-
-// app.listen(PORT, () => {
-//   console.log(`Example app listening on port ${PORT}`);
-// });
+console.log(`WebSocket server is running on ws://localhost:${PORT}`);

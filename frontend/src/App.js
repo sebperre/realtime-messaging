@@ -14,7 +14,6 @@ function App() {
     if (inputValue !== "") {
       if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
         wsRef.current.send(JSON.stringify({ message: inputValue }));
-        console.log("Message sent:", inputValue);
         setMessages((prevMessages) => [
           ...prevMessages,
           { message: inputValue, user: "primary" },
@@ -31,13 +30,11 @@ function App() {
     wsRef.current = ws;
 
     ws.onopen = () => {
-      console.log("WebSocket connection established");
-      ws.send(JSON.stringify({ message: "Hello Server!" }));
+      console.log("WebSocket connection opened");
     };
 
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      console.log("Message received:", data);
       data.user = "secondary";
       setMessages((prevMessages) => [...prevMessages, data]);
     };
@@ -79,7 +76,6 @@ function App() {
         <button className="hover:opacity-50" onClick={handleClick}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            // xmlns:xlink="http://www.w3.org/1999/xlink"
             version="1.1"
             id="Layer_1"
             x="0px"
@@ -87,7 +83,6 @@ function App() {
             width="25px"
             viewBox="0 0 512 512"
             enable-background="new 0 0 512 512"
-            // xml:space="preserve"
           >
             <path
               fill="#000000"
