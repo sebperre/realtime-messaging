@@ -37,7 +37,7 @@ function App() {
           className="text-2xl w-full border-solid border-2 border-black"
           placeholder="Enter here to send a message"
         />
-        <button className="">
+        <button className="hover:opacity-50">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             // xmlns:xlink="http://www.w3.org/1999/xlink"
