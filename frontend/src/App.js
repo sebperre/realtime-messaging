@@ -1,48 +1,36 @@
 import "./App.css";
 
 function App() {
+  const me = "self-start text-left bg-gray-200 p-2 rounded-md";
+  const other = "self-end text-right bg-blue-200 p-2 rounded-md";
   return (
     <div className="App h-[100vh]">
       <h1 className="text-3xl font-bold text-blue-400 h-[10vh] flex flex-col justify-center">
         Text Messanger
       </h1>
       <div className="border-solid border-8 border-black w-1/2 h-[80vh] content-center flex flex-col justify-start overflow-auto">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
-        quis exercitationem culpa nesciunt nihil aut nostrum explicabo
-        reprehenderit optio amet ab temporibus asperiores quasi cupiditate.
-        Voluptatum ducimus voluptates voluptas? Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Eligendi non quis exercitationem culpa
-        nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab
-        temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates
-        voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum
-        explicabo reprehenderit optio amet ab temporibus asperiores quasi
-        cupiditate. Voluptatum ducimus voluptates voluptas? Lorem ipsum dolor
-        sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem
-        culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab
-        temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates
-        voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum
-        explicabo reprehenderit optio amet ab temporibus asperiores quasi
-        cupiditate. Voluptatum ducimus voluptates voluptas? Lorem ipsum dolor
-        sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem
-        culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab
-        temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates
-        voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum
-        explicabo reprehenderit optio amet ab temporibus asperiores quasi
-        cupiditate. Voluptatum ducimus voluptates voluptas? Lorem ipsum dolor
-        sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem
-        culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab
-        temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates
-        voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum
-        explicabo reprehenderit optio amet ab temporibus asperiores quasi
-        cupiditate. Voluptatum ducimus voluptates voluptas? Lorem ipsum dolor
-        sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem
-        culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab
-        temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates
-        voluptas?
+        <div className="primary_user">hi</div>
+        <div className="secondary_user">bye</div>
+        <div className="primary_user">
+          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
+          adsfasdfasdfasdf asdfasdfasdfasdf
+        </div>
+        <div className="primary_user">
+          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
+          adsfasdfasdfasdf asdfasdfasdfasdf
+        </div>
+        <div className="primary_user">
+          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
+          adsfasdfasdfasdf asdfasdfasdfasdf
+        </div>
+        <div className="primary_user">
+          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
+          adsfasdfasdfasdf asdfasdfasdfasdf
+        </div>
+        <div className="primary_user">
+          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
+          adsfasdfasdfasdf asdfasdfasdfasdf
+        </div>
       </div>
       <div className="flex w-1/2 m-5">
         <input
