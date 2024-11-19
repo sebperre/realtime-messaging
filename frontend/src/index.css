@@ -22,9 +22,9 @@ code {
 
 @layer components {
   .primary_user {
-    @apply m-1 text-left self-start bg-blue-200 p-2 rounded-md max-w-sm;
+    @apply m-1 text-right self-end bg-blue-200 p-2 rounded-md max-w-sm;
   }
   .secondary_user {
-    @apply m-1 text-right self-end bg-gray-200 p-2 rounded-md max-w-sm;
+    @apply m-1 text-left self-start bg-gray-200 p-2 rounded-md max-w-sm;
   }
 }

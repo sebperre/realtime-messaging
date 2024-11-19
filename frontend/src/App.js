@@ -1,43 +1,82 @@
 import "./App.css";
+import React, { useEffect, useState, useRef } from "react";
 
 function App() {
-  const me = "self-start text-left bg-gray-200 p-2 rounded-md";
-  const other = "self-end text-right bg-blue-200 p-2 rounded-md";
+  const wsRef = useRef(null);
+  const [messages, setMessages] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  function handleClick() {
+    if (inputValue !== "") {
+      if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+        wsRef.current.send(JSON.stringify({ message: inputValue }));
+        console.log("Message sent:", inputValue);
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { message: inputValue, user: "primary" },
+        ]);
+        setInputValue("");
+      } else {
+        console.error("WebSocket is not open");
+      }
+    }
+  }
+
+  useEffect(() => {
+    const ws = new WebSocket("ws://localhost:8080");
+    wsRef.current = ws;
+
+    ws.onopen = () => {
+      console.log("WebSocket connection established");
+      ws.send(JSON.stringify({ message: "Hello Server!" }));
+    };
+
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      console.log("Message received:", data);
+      data.user = "secondary";
+      setMessages((prevMessages) => [...prevMessages, data]);
+    };
+
+    ws.onclose = () => {
+      console.log("WebSocket connection closed");
+    };
+
+    ws.onerror = (error) => {
+      console.error("WebSocket error:", error);
+    };
+
+    return () => {
+      ws.close();
+    };
+  }, []);
+
   return (
     <div className="App h-[100vh]">
       <h1 className="text-3xl font-bold text-blue-400 h-[10vh] flex flex-col justify-center">
         Text Messanger
       </h1>
       <div className="border-solid border-8 border-black w-1/2 h-[80vh] content-center flex flex-col justify-start overflow-auto">
-        <div className="primary_user">hi</div>
-        <div className="secondary_user">bye</div>
-        <div className="primary_user">
-          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
-          adsfasdfasdfasdf asdfasdfasdfasdf
-        </div>
-        <div className="primary_user">
-          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
-          adsfasdfasdfasdf asdfasdfasdfasdf
-        </div>
-        <div className="primary_user">
-          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
-          adsfasdfasdfasdf asdfasdfasdfasdf
-        </div>
-        <div className="primary_user">
-          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
-          adsfasdfasdfasdf asdfasdfasdfasdf
-        </div>
-        <div className="primary_user">
-          I love you asdfasdfasdf asdfasdfasdfasdfasdfasdf asdfasdfasdf
-          adsfasdfasdfasdf asdfasdfasdfasdf
-        </div>
+        {messages.map((msg, index) => {
+          if (msg.user === "primary") {
+            return <div className="primary_user">{msg.message}</div>;
+          } else {
+            return <div className="secondary_user">{msg.message}</div>;
+          }
+        })}
       </div>
       <div className="flex w-1/2 m-5">
         <input
+          value={inputValue}
+          onChange={handleInputChange}
           className="text-2xl w-full border-solid border-2 border-black"
           placeholder="Enter here to send a message"
         />
-        <button className="hover:opacity-50">
+        <button className="hover:opacity-50" onClick={handleClick}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             // xmlns:xlink="http://www.w3.org/1999/xlink"
