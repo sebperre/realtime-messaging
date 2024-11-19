@@ -33,9 +33,11 @@ You can run the setup.sh script to get the webapp quickly running. Note that the
 bash setup.sh
 ```
 
-## Extra Notes
+As this runs in the background, you can use the shutdown.sh script to shutdown the proceses on these ports
 
-Note this runs the instances in the background so you will have to kill them yourselves manually to free the ports.
+```bash
+bash shutdown.sh
+```
 
 ## License
 
