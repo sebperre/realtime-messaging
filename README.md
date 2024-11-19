@@ -4,6 +4,10 @@
 
 This is a webapp I created myself to learn more about websockets and how to connect two different clients to each other. It is a basic text messaging app where you can send messages.
 
+<p align="center">
+  <img src="text-messanger-preview.png" />
+</p>
+
 ## Features
 
 - **Simplistic Frontend Design**: Easy to use with a simple chatlog and the ability to send messages
