@@ -1,33 +1,23 @@
-# Realtime Messenger
+# Realtime Messanger
 
-## Overview
+## Overview 🧭
 
-This is a webapp I created myself to learn more about websockets and how to connect two different clients to each other. It is a basic text messaging app where you can send messages.
+A basic text messaging app.
 
 <p align="center">
   <img src="text-messanger-preview.png" />
 </p>
 
-## Features
+## Features 🔧
 
 - **Simplistic Frontend Design**: Easy to use with a simple chatlog and the ability to send messages
 - **Realtime Messaging**: Utilizes websockets to send and receive messages in realtime
 
-## Tech Stack
-### Frontend
-1. React
-2. CSS
-3. HTML
-4. JavaScript
-5. Tailwind
+## Usage 🛠️
 
-### Backend
-1. Javascript
-2. WS
+### <ins>Setup and Shutdown</ins>
 
-## Requirements
-
-You can run the setup.sh script to get the webapp quickly running. Note that the backend runs on port 8080 and the two frontend instances run on port 3000 and 3001 respectively.
+You can run the setup.sh script to get the webapp quickly running. Note the backend runs on port 8080 and the two frontend instances run on port 3000 and 3001 respectively.
 
 ```bash
 bash setup.sh
@@ -39,6 +29,6 @@ As this runs in the background, you can use the shutdown.sh script to shutdown t
 bash shutdown.sh
 ```
 
-## License
+## License 📄
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
